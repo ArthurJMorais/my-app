@@ -78,15 +78,17 @@ class CreateTestProduct implements DataPatchInterface
     /**
      * @inheritdoc
      */
-    public function apply()
+    public function apply(): void
     {
         $this->appState->emulateAreaCode('adminhtml', [$this, 'execute']);
     }
 
     /**
      * Add test product
+     *
+     * @return void
      */
-    public function execute()
+    public function execute(): void
     {
         $product = $this->productFactory->create();
 
@@ -124,7 +126,7 @@ class CreateTestProduct implements DataPatchInterface
     /**
      * @inheritdoc
      */
-    public function getAliases()
+    public function getAliases(): array
     {
         return [];
     }
@@ -132,7 +134,7 @@ class CreateTestProduct implements DataPatchInterface
     /**
      * @inheritdoc
      */
-    public static function getDependencies()
+    public static function getDependencies(): array
     {
         return [];
     }
